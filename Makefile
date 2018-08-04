@@ -4,7 +4,7 @@ SRCS = main.c Person.c
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 
-CFLAGS = -Wshadow -Wall -Wpedantic -Wextra -g
+CFLAGS = -Wshadow -Wall -Wpedantic -Wextra -g -std=c89
 
 LDFLAGS = -lm
 

@@ -5,4 +5,5 @@ int main()
 {
     Person me = pnew();
     pspeak(me);
+    return 0;
 }
