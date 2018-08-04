@@ -10,6 +10,6 @@ That is to say, object files are still compiled - This is not a direct inclusion
 static inline functions.
 
 ```
-    make
-    ./a.out
+make
+./a.out
 ```
