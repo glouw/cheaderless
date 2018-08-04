@@ -1,5 +1,5 @@
-#ifndef __WATCH__
-#define __WATCH__
+#ifndef _WATCH
+#define _WATCH
 
     #include <stdio.h>
 
@@ -11,10 +11,12 @@
     }
     Watch;
 
+#endif
+
     Watch wnew(void)
-    #ifdef WATCH
-        ;
-    #else
+#ifdef WATCH
+    ;
+#else
     {
         Watch w;
         w.hour = 4;
@@ -22,17 +24,15 @@
         w.seconds = 0;
         return w;
     }
-    #endif
+#endif
 
     void wtell(const Watch w)
-    #ifdef WATCH
-        ;
-    #else
+#ifdef WATCH
+    ;
+#else
     {
         printf("%d\n", w.hour);
         printf("%d\n", w.minutes);
         printf("%d\n", w.seconds);
     }
-    #endif
-
 #endif

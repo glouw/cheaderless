@@ -1,5 +1,5 @@
-#ifndef __PERSON__
-#define __PERSON__
+#ifndef _PERSON
+#define _PERSON
 
     #include <stdio.h>
 
@@ -15,10 +15,12 @@
     }
     Person;
 
+#endif
+
     Person pnew(void)
-    #ifdef PERSON
-        ;
-    #else
+#ifdef PERSON
+    ;
+#else
     {
         Person p;
         p.age = 22;
@@ -27,18 +29,16 @@
         p.watch = wnew();
         return p;
     }
-    #endif
+#endif
 
     void pspeak(const Person p)
-    #ifdef PERSON
-        ;
-    #else
+#ifdef PERSON
+    ;
+#else
     {
         printf("%d\n", p.age);
         printf("%d\n", p.height);
         printf("%d\n", p.weight);
         wtell(p.watch);
     }
-    #endif
-
 #endif
