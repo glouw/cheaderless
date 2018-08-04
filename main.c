@@ -1,5 +1,5 @@
-#define IMPORT
-#include "Person.c"
+#define PERSON
+#include "PERSON.c"
 
 int main()
 {

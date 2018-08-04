@@ -1,6 +1,6 @@
 BIN = a.out
 
-SRCS = main.c Person.c
+SRCS = main.c PERSON.c WATCH.c
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 
