@@ -1,38 +1,37 @@
-#ifndef _WATCH
-#define _WATCH
+#ifndef __WATCH__
+#define __WATCH__
 
-    #include <stdio.h>
+#include <stdio.h>
 
-    typedef struct
-    {
-        int hour;
-        int minutes;
-        int seconds;
-    }
-    Watch;
-
+#undef defines
+#ifdef WATCH
+    #define defines(...);
+#else
+    #define defines(...){__VA_ARGS__}
 #endif
 
-    Watch wnew(void)
-#ifdef WATCH
-    ;
-#else
-    {
-        Watch w;
-        w.hour = 4;
-        w.minutes = 20;
-        w.seconds = 0;
-        return w;
-    }
-#endif
+typedef struct
+{
+    int hour;
+    int minutes;
+    int seconds;
+}
+Watch;
 
-    void wtell(const Watch w)
-#ifdef WATCH
-    ;
-#else
-    {
-        printf("%d\n", w.hour);
-        printf("%d\n", w.minutes);
-        printf("%d\n", w.seconds);
-    }
+Watch wnew(void) defines
+(
+    Watch w;
+    w.hour = 4;
+    w.minutes = 20;
+    w.seconds = 0;
+    return w;
+)
+
+void wtell(const Watch w) defines
+(
+    printf("%d\n", w.hour);
+    printf("%d\n", w.minutes);
+    printf("%d\n", w.seconds);
+)
+
 #endif

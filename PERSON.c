@@ -1,44 +1,49 @@
-#ifndef _PERSON
-#define _PERSON
+#ifndef __PERSON__
+#define __PERSON__
 
-    #include <stdio.h>
+#include <stdio.h>
 
-    #define WATCH
-    #include "WATCH.c"
+/* Modules are included here.
+ * The module name must be defined before its .c file is included.
+ * This will swap out module definitions for declarations. */
+#define WATCH
+#include "WATCH.c"
 
-    typedef struct
-    {
-        int age;
-        int height;
-        int weight;
-        Watch watch;
-    }
-    Person;
-
+/* The _defines_ macro must be undefined first as previous modules
+ * will have it alreayd defined. Note that _defines_ must be defined
+ * last after the inclusion of other modules. */
+#undef defines
+#ifdef PERSON
+    #define defines(...);
+#else
+    #define defines(...){__VA_ARGS__}
 #endif
 
-    Person pnew(void)
-#ifdef PERSON
-    ;
-#else
-    {
-        Person p;
-        p.age = 22;
-        p.height = 200;
-        p.weight = 220;
-        p.watch = wnew();
-        return p;
-    }
-#endif
+typedef struct
+{
+    int age;
+    int height;
+    int weight;
+    Watch watch;
+}
+Person;
 
-    void pspeak(const Person p)
-#ifdef PERSON
-    ;
-#else
-    {
-        printf("%d\n", p.age);
-        printf("%d\n", p.height);
-        printf("%d\n", p.weight);
-        wtell(p.watch);
-    }
+Person pnew(void) defines
+(
+    Person p;
+    p.age = 22;
+    p.height = 200;
+    p.weight = 220;
+    p.watch = wnew();
+    return p;
+)
+
+void pspeak(const Person p) defines
+(
+    printf("%d\n", p.age);
+    printf("%d\n", p.height);
+    printf("%d\n", p.weight);
+    wtell(p.watch);
+)
+
 #endif
