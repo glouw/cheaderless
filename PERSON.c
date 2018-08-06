@@ -10,7 +10,7 @@
 #include "WATCH.c"
 
 /* The _defines_ macro must be undefined first as previous modules
- * will have it alreayd defined. Note that _defines_ must be defined
+ * will have it already defined. Note that _defines_ must be defined
  * last after the inclusion of other modules. */
 #undef defines
 #ifdef PERSON
